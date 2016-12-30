@@ -3,7 +3,7 @@ using System;
 using UnityEditor;
 using UnityEngine;
 
-namespace VoxelMap
+namespace PerlinNoiseMap
 {
     public class VoxelMapWindow : EditorWindow
     {

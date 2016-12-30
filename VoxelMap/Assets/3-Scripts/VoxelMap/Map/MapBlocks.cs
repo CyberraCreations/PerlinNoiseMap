@@ -2,7 +2,7 @@
 using System;
 using UnityEngine;
 
-namespace VoxelMap
+namespace PerlinNoiseMap
 {
     #region Methods
     [Serializable]

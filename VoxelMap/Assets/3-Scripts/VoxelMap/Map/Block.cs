@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace VoxelMap
+namespace PerlinNoiseMap
 {
     public class Block : MonoBehaviour
     {

@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace VoxelMap
+namespace PerlinNoiseMap
 {
     [CustomEditor(typeof(Map))]
     [ExecuteInEditMode]

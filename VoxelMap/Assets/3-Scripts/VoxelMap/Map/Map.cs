@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace VoxelMap
+namespace PerlinNoiseMap
 {
     public class Map : MonoBehaviour
     {
@@ -13,6 +13,14 @@ namespace VoxelMap
         {
             get { return mapBlocks; }
             set { mapBlocks = value; }
+        }
+
+        [SerializeField]
+        private Texture perlinNoiseTexture = null;
+        public Texture PerlinNoiseTexture
+        {
+            get { return perlinNoiseTexture; }
+            set { perlinNoiseTexture = value; }
         }
 
         private Vector3 size = new Vector3();
