@@ -18,6 +18,15 @@ namespace PerlinNoiseMap
         #endregion
 
         #region Methods
+        [MenuItem("Window/VoxelMap")]
+        static void Init()
+        {
+            VoxelMapWindow mapCreator = GetWindow<VoxelMapWindow>();
+            GUIContent title = new GUIContent();
+            title.text = "VoxelMap";
+            mapCreator.titleContent = title;
+        }
+
         private void OnEnable()
         {
             EditorApplication.update += RefreshOnPlay;
@@ -34,15 +43,6 @@ namespace PerlinNoiseMap
             {
                 Repaint();
             }
-        }
-
-        [MenuItem("Window/VoxelMap")]
-        static void Init()
-        {
-            VoxelMapWindow mapCreator = GetWindow<VoxelMapWindow>();
-            GUIContent title = new GUIContent();
-            title.text = "VoxelMap";
-            mapCreator.titleContent = title;
         }
 
         private void OnGUI()
