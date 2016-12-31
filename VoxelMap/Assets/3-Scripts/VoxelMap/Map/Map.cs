@@ -11,39 +11,47 @@ namespace PerlinNoiseMap
         private MapBlocks mapBlocks;
         public MapBlocks MapBlocks
         {
-            get { return mapBlocks; }
             set { mapBlocks = value; }
         }
 
         [SerializeField]
         private Texture perlinNoiseTexture = null;
-        public Texture PerlinNoiseTexture
-        {
-            get { return perlinNoiseTexture; }
-            set { perlinNoiseTexture = value; }
-        }
+
+        [SerializeField]
+        private int maxHeight = 1;
+
+        [SerializeField]
+        private Vector2 mapSize = Vector2.one;
         #endregion
 
         #region Methods
-        public void Init(int sizeX, int sizeY, int sizeZ)
+        public void Init()
         {
             for (int i = transform.childCount - 1; i >= 0; i--)
             {
                 DestroyImmediate(transform.GetChild(i).gameObject);
             }
 
-            for (int x = 0; x < sizeX; x++)
+            for (int x = 1; x < (int)mapSize.x + 1; x++)
             {
-                for (int y = 0; y < sizeY; y++)
+                for (int z = 1; z < (int)mapSize.y + 1; z++)
                 {
-                    for (int z = 0; z < sizeZ; z++)
+                    int height = Mathf.CeilToInt(maxHeight * GetHeightAt((int)mapSize.x, (int)mapSize.y, x, z));
+                    for (int y = 1; y < height + 1; y++)
                     {
-                        Block block = Instantiate(mapBlocks.filler);
+                        Block block = Instantiate(y != height ? mapBlocks.filler : mapBlocks.top);
                         block.transform.SetParent(transform);
-                        block.Init(x, y, z);
+                        block.Init(x, y, z, GetHeightAt((int)mapSize.x, (int)mapSize.y, x, z));
                     }
                 }
             }
+        }
+
+        private float GetHeightAt(int x, int z, int sizeX, int sizeZ)
+        {
+            int marginX = perlinNoiseTexture.width / sizeX;
+            int marginZ = perlinNoiseTexture.width / sizeZ;
+            return (perlinNoiseTexture as Texture2D).GetPixel(x * marginX, z * marginZ).grayscale;
         }
         #endregion
     }

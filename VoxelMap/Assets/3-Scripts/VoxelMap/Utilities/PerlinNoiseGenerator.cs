@@ -8,7 +8,6 @@ namespace PerlinNoiseMap
     public class PerlinNoiseGenerator : EditorWindow
     {
         private Color[] pix = null;
-        private Material materialUsed = null;
         private Texture2D textureUsed = null;
         private float xOrg = 0;
         private float yOrg = 0;
@@ -47,7 +46,7 @@ namespace PerlinNoiseMap
             GUILayout.Box("ENTER DESIRED VALUES", new GUILayoutOption[] { GUILayout.ExpandWidth(true), GUILayout.Height(130) });
             InitVariables();
 
-            if (materialUsed != null && textureUsed != null)
+            if (textureUsed != null)
             {
                 CreateNewTexture();
             }
@@ -101,17 +100,6 @@ namespace PerlinNoiseMap
                 GUILayout.EndHorizontal();
             }
             GUILayout.EndArea();
-
-            GUILayout.BeginArea(new Rect(10, 105, EditorGUIUtility.currentViewWidth - 25f, 20));
-            {
-                GUILayout.BeginHorizontal();
-                {
-                    GUILayout.Label("Material output: ");
-                    materialUsed = (Material)EditorGUILayout.ObjectField(materialUsed, typeof(Material), false);
-                }
-                GUILayout.EndHorizontal();
-            }
-            GUILayout.EndArea();
             EditorGUI.EndChangeCheck();
         }
 
@@ -142,7 +130,6 @@ namespace PerlinNoiseMap
                     }
                     textureUsed.SetPixels(pix);
                     textureUsed.Apply();
-                    materialUsed.mainTexture = textureUsed;
                 }
             }
             GUILayout.EndHorizontal();

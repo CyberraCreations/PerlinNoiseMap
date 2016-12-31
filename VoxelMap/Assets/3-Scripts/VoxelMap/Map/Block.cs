@@ -24,14 +24,18 @@ namespace PerlinNoiseMap
                 posZ = (int)value.z;
             }
         }
+
+        [SerializeField]
+        private float noiseValue = 0;
         #endregion
 
         #region Methods
-        public void Init(int posX, int posY, int posZ)
+        public void Init(int posX, int posY, int posZ, float noiseValue)
         {
             Position = new Vector3(posX, posY, posZ);
             transform.position = Position;
             transform.localScale = Vector3.one;
+            this.noiseValue = noiseValue;
         }
         #endregion
     }

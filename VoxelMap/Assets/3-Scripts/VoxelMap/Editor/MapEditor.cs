@@ -10,7 +10,6 @@ namespace PerlinNoiseMap
     {
         #region Fields
         private Map map = null;
-        private Vector2 mapSize = new Vector2();
         #endregion
 
         #region Methods
@@ -36,18 +35,10 @@ namespace PerlinNoiseMap
             GUILayout.BeginHorizontal();
             {
                 GUIContent content = new GUIContent();
-                content.text = "Map size: ";
-                mapSize = EditorGUILayout.Vector2Field(content, mapSize);
-            }
-            GUILayout.EndHorizontal();
-
-            GUILayout.BeginHorizontal();
-            {
-                GUIContent content = new GUIContent();
                 content.text = "Init Map";
                 if (GUILayout.Button(content, new GUILayoutOption[] { GUILayout.ExpandWidth(true) }))
                 {
-                    map.Init((int)mapSize.x, 2, (int)mapSize.y);
+                    map.Init();
                 }
             }
             GUILayout.EndHorizontal();
