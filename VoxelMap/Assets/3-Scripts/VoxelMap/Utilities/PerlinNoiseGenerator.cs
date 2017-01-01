@@ -7,12 +7,15 @@ namespace PerlinNoiseMap
 {
     public class PerlinNoiseGenerator : EditorWindow
     {
+        #region Fields
         private Color[] pix = null;
         private Texture2D textureUsed = null;
         private float xOrg = 0;
         private float yOrg = 0;
         private float scale = 1f;
+        #endregion
 
+        #region Methods
         [MenuItem("Window/PerlinNoiseGenerator")]
         static void Init()
         {
@@ -135,5 +138,6 @@ namespace PerlinNoiseMap
             GUILayout.EndHorizontal();
             EditorGUI.EndChangeCheck();
         }
+        #endregion
     }
 }

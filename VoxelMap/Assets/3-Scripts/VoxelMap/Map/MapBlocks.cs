@@ -4,12 +4,23 @@ using UnityEngine;
 
 namespace PerlinNoiseMap
 {
-    #region Methods
     [Serializable]
     public class MapBlocks : ScriptableObject
     {
-        public Block filler;
-        public Block top;
+        #region Fields
+        [SerializeField]
+        private Block filler;
+        public Block Filler
+        {
+            get { return filler; }
+        }
+
+        [SerializeField]
+        private Block top;
+        public Block Top
+        {
+            get { return top; }
+        }
+        #endregion
     }
-    #endregion
 }
