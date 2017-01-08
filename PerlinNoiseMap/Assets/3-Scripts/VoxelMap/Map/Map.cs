@@ -25,9 +25,19 @@ namespace PerlinNoiseMap
 
         [SerializeField]
         private Texture perlinNoiseTexture = null;
+        public Texture PerlinNoiseTexture
+        {
+            get { return perlinNoiseTexture; }
+            set { perlinNoiseTexture = value; }
+        }
 
         [SerializeField]
         private int maxHeight = 1;
+        public int MaxHeight
+        {
+            get { return maxHeight; }
+            set { maxHeight = value; }
+        }
 
         [SerializeField]
         private bool smoothMap = false;

@@ -19,6 +19,7 @@ namespace PerlinNoiseMap
         public Vector2 MapSize
         {
             get { return mapSize; }
+            set { mapSize = value; }
         }
 
         public void Init()

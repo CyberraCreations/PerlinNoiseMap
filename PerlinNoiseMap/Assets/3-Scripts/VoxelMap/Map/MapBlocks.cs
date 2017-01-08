@@ -13,6 +13,7 @@ namespace PerlinNoiseMap
         public Block Filler
         {
             get { return filler; }
+            set { filler = value; }
         }
 
         [SerializeField]
@@ -20,6 +21,7 @@ namespace PerlinNoiseMap
         public Block Top
         {
             get { return top; }
+            set { top = value; }
         }
         #endregion
     }
