@@ -65,11 +65,16 @@ namespace PerlinNoiseMap
                 {
                     MapBlocks blockDefinition = CreateInstance<MapBlocks>();
                     AssetDatabase.CreateAsset(blockDefinition, BLOCK_DEFINITION + ".asset");
-                    AssetDatabase.RenameAsset(BLOCK_DEFINITION + ".asset", mapName);
+                    AssetDatabase.RenameAsset(BLOCK_DEFINITION + ".asset", mapName + "Blocks");
+
+                    MapStats mapStats = CreateInstance<MapStats>();
+                    AssetDatabase.CreateAsset(mapStats, BLOCK_DEFINITION + ".asset");
+                    AssetDatabase.RenameAsset(BLOCK_DEFINITION + ".asset", mapName + "Stats");
 
                     GameObject mapObject = new GameObject(mapName);
                     map = mapObject.AddComponent<Map>();
                     map.MapBlocks = blockDefinition;
+                    map.MapStats = mapStats;
 
                     GameObject prefab = PrefabUtility.CreatePrefab(BLOCK_PREFAB + ".prefab", mapObject);
                     Map mapPrefab = prefab.GetComponent<Map>();

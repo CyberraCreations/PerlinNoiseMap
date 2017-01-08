@@ -25,21 +25,21 @@ namespace PerlinNoiseMap
             }
         }
 
-        [SerializeField]
-        private int heightValue = 0;
-        public int HeightValue
-        {
-            get { return heightValue; }
-        }
+        //[SerializeField]
+        //private int heightValue = 0;
+        //public int HeightValue
+        //{
+        //    get { return heightValue; }
+        //}
         #endregion
 
         #region Methods
-        public void Init(int posX, int posY, int posZ, int heightValue)
+        public void Init(int posX, int posY, int posZ/*, int heightValue*/)
         {
             Position = new Vector3(posX, posY, posZ);
             transform.position = Position;
             transform.localScale = Vector3.one;
-            this.heightValue = heightValue;
+            //this.heightValue = heightValue;
         }
         #endregion
     }
